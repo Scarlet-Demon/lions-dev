@@ -4,6 +4,8 @@ git clone
 
 git checkout -b nome-do-novo-branch
 
+git push jogo-branch
+
 Pull Request
 
 Merge
