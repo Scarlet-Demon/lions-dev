@@ -17,3 +17,5 @@ git config --global user.email “email@email.com”
 git config --global http.proxy http://seucpf:seucpf@192.168.10.1:3128
 
 git config --global https.proxy http://seucpf:seucpf@192.168.10.1:3128
+
+git config --list
