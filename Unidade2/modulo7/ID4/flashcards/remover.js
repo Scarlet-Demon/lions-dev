@@ -1,0 +1,1 @@
+const Flashcards = require('./Flashcards')
