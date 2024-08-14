@@ -1,7 +1,9 @@
-const baralhos = require("./baralhos");
+const baralhos = require('./baralhos');
 
 function adicionarBaralho(baralho) {
-    baralho.id = baralhos.length + 1;
-    baralhos.push(baralho)
+    // Verifica se o array baralhos está vazio para definir o primeiro ID como 1
+    baralho.id = baralhos.length > 0 ? baralhos[baralhos.length - 1].id + 1 : 1;
+    baralhos.push(baralho);
 }
-module.exports = adicionarBaralho
+
+module.exports = adicionarBaralho;
