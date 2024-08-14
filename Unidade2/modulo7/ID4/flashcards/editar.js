@@ -1,6 +1,12 @@
-const Flashcards = require('./Flashcards')
+const Flashcards = require('./Flashcards');
 
-function editarFlashcards(index, novaPergunta, novaResposta) {
-    Flashcards[index] = novaPergunta, novaResposta
+function editarFlashcard(index, novaPergunta, novaResposta) {
+    if (index >= 0 && index < Flashcards.length) {
+        Flashcards[index].pergunta = novaPergunta;
+        Flashcards[index].resposta = novaResposta;
+    } else {
+        console.log('Índice não encontrado');
+    }
 }
-module.exports = editarFlashcards
+
+module.exports = editarFlashcard;
