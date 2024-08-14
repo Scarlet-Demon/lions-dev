@@ -1,72 +1,71 @@
-const prompt = require('prompt-sync') ()
-const adicionarBaralho = require('./adicionar')
-const listarBaralho = require('./listar') 
-const editarBaralho = require('./editar') 
-const removerBaralho = require('./remover')
-const baralhos = require('./baralhos')
-const Menu = require('./flashcards/menuFlash')
+const prompt = require('prompt-sync')();
+const adicionarBaralho = require('./adicionar');
+const listarBaralho = require('./listar');
+const editarBaralho = require('./editar');
+const removerBaralho = require('./remover');
+const baralhos = require('./baralhos');
+const Menu = require('./flashcards/menuFlash');
 
 function exibirMenu() {
     console.log(`
-    Bem-Vindo ao Meu Apredizado.com
+    Bem-Vindo ao Meu Aprendizado.com
     1. Adicionar Baralho
     2. Listar Baralhos
-    3. Ediatr Baralho
+    3. Editar Baralho
     4. Remover Baralho
     5. Ir para o Menu dos FlashCards
     6. Sair
-    `)
-    let opçao = prompt('Qual a sua Escolha: ') 
-    let index
-    switch (opçao) {
+    `);
+    let opcao = prompt('Qual a sua Escolha: ');
+    let posicao;
+    switch (opcao) {
         case '1':
-            const titulo = prompt('Titulo: ');
-            let id = baralhos[baralhos.length - 1].id + 1
-            adicionarBaralho({ id: id, titulo: titulo});
-            console.log('Bralho adicionado com sucesso!');
-            exibirMenu()
+            const titulo = prompt('Título: ');
+            let id = baralhos.length > 0 ? baralhos[baralhos.length - 1].id + 1 : 1;
+            adicionarBaralho({ id: id, titulo: titulo });
+            console.log('Baralho adicionado com sucesso!');
+            exibirMenu();
             break;
         case '2':
-            listarBaralho()
-            exibirMenu()
+            listarBaralho();
+            exibirMenu();
             break;
         case '3':
-            listarBaralho()
-            index = parseInt(prompt('Digite o ID que Deseja Editar: ')) - 1
-            posicao = usuarios.findIndex(usuarios => usuarios.id == index)
-            if (posicao < 0 || posicao >= usuarios.length) {
-                console.log('Id não Encontrado, ou não Existente')
-                exibirMenu()
+            listarBaralho();
+            let index = parseInt(prompt('Digite o ID que Deseja Editar: ')) - 1;
+            posicao = baralhos.findIndex(baralho => baralho.id === index + 1);
+            if (posicao < 0) {
+                console.log('ID não Encontrado, ou não Existente');
             } else {
-                const novoTitulo = prompt('titulo: ');
-                editarBaralho( index, {id: baralhos[index].id, titulo: novoTitulo})
-                console.log('Baralho Editado com Sucesso')
+                const novoTitulo = prompt('Título: ');
+                editarBaralho(posicao, novoTitulo);
+                console.log('Baralho Editado com Sucesso');
             }
-            exibirMenu()
+            exibirMenu();
             break;
         case '4':
-            listarBaralho()
-            index = parseInt(prompt('Digite o ID que Deseja Remover: ')) - 1;
-            posicao = baralhos.findIndex(baralhos => baralhos.id == index)
-            if (posicao < 0 || posicao >= baralhos.length) {
-                console.log('Id não Encontrado, ou não Existente')
-                exibirMenu()
+            listarBaralho();
+            let removeIndex = parseInt(prompt('Digite o ID que Deseja Remover: ')) - 1;
+            posicao = baralhos.findIndex(baralho => baralho.id === removeIndex + 1);
+            if (posicao < 0) {
+                console.log('ID não Encontrado, ou não Existente');
             } else {
-                removerBaralho(baralhos, posicao)
+                removerBaralho(posicao);
+                console.log('Baralho removido com sucesso!');
             }
-            console.log('Baralho removido com sucesso!');
             exibirMenu();
             break;
         case '5':
-            Menu()
+            Menu();
             break;
         case '6':
+            console.log('Saindo...');
             break;
         default:
-            console.log('Opção Invalida, Por Favor, Tente Novamente')
-            exibirMenu()
+            console.log('Opção Inválida, Por Favor, Tente Novamente');
+            exibirMenu();
             break;
     }
 }
 
-exibirMenu()
+exibirMenu();
