@@ -1,7 +1,11 @@
-const baralhos = require("./baralhos");
+const baralhos = require('./baralhos');
 
 function removerBaralho(index) {
-    baralhos.splice(index, 1)
-    
+    if (index >= 0 && index < baralhos.length) {
+        baralhos.splice(index, 1);
+    } else {
+        console.log('Índice não encontrado');
+    }
 }
-module.exports = removerBaralho
+
+module.exports = removerBaralho;
