@@ -1,6 +1,6 @@
 
 const Flashcards = require('./Flashcards');
-const prompt = require('prompt-sync')();
+
 
 function buscarFlashcardsPorPergunta() {
     const pergunta = prompt('Digite a pergunta a ser buscada: ').toLowerCase();
