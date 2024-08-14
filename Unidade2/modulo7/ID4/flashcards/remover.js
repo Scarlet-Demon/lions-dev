@@ -1,6 +1,6 @@
-const Flashcards = require('./Flashcards')
+const Flashcards = require('./Flashcards');
 
-function removerFlashcards(index) {
+function removerFlashcard(index) {
     if (index >= 0 && index < Flashcards.length) {
         Flashcards.splice(index, 1);
     } else {
@@ -8,4 +8,4 @@ function removerFlashcards(index) {
     }
 }
 
-module.exports = removerFlashcards;
+module.exports = removerFlashcard;
