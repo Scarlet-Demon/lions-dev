@@ -34,13 +34,13 @@ function Menu() {
             Menu();
             break;
         case '3':
-            // Implementar a funcionalidade para listar flashcards por baralho
+            listarFlashcardsPorBaralho();
             break;
         case '4':
-            // Implementar a funcionalidade para busca por baralho
+            buscarFlashcardsPorBaralho();
             break;
         case '5':
-            // Implementar a funcionalidade para busca por pergunta
+            buscarFlashcardsPorPergunta();
             break;
         case '6':
             listarFlashcards();
