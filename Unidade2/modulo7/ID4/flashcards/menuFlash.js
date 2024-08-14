@@ -69,7 +69,6 @@ function Menu() {
             Menu();
             break;
         case '8':
-            // Voltar para o menu principal
             break;
         default:
             console.log('Opção Inválida, Por Favor, Tente Novamente');
