@@ -1,13 +1,14 @@
-const Flashcards = require('./Flashcards')
+const Flashcards = require('./Flashcards');
 
 function listarFlashcards() {
-    for (let i = 0; id < Flashcards.length; i++) {
-        const Flashcard = Flashcards[i];
+    for (let i = 0; i < Flashcards.length; i++) {
+        const flashcard = Flashcards[i];
         console.log(`
-        Id: ${Flashcard.Id},
-        Pergunta: ${Flashcard.pergunta},
-        Resposta: ${Flashcard.resposta}
-        `)
+        Id: ${flashcard.Id},
+        Pergunta: ${flashcard.pergunta},
+        Resposta: ${flashcard.resposta}
+        `);
     }
 }
-module.exports = listarFlashcards
+
+module.exports = listarFlashcards;
