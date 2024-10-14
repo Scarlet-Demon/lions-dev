@@ -19,8 +19,8 @@
   "homepage": "https://github.com/vaecherdt/lionsdev-funeraria#readme",
   "description": "type adicionado para suportar import/export (obrigatório se for usar import from e export default), start adicionado para rodar o servidor e  dependencies adicionado para instalar as dependências com npm install",
   "dependencies": {
+    "dotenv": "^16.4.5",
     "express": "^4.21.0",
     "mongoose": "^8.7.0"
   }
 }
-
